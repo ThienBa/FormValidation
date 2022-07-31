@@ -42,7 +42,7 @@
                 <span class="form-message"></span>
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="avatar" class="form-label">Avatar</label>
                 <input id="avatar" name="avatar" type="file" class="form-control">
                 <span class="form-message"></span>
@@ -80,7 +80,7 @@
                     </label>
                 </div>
                 <span class="form-message"></span>
-            </div> -->
+            </div>
 
             <button class="form-submit">Đăng ký</button>
         </form>
@@ -100,46 +100,6 @@
                 <span class="form-message"></span>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="avatar" class="form-label">Avatar</label>
-                <input id="avatar" name="avatar" type="file" class="form-control">
-                <span class="form-message"></span>
-            </div>
-
-            <div class="form-group">
-                <label for="province" class="form-label">Tỉnh/TP</label>
-                <select id="province" name="province" class="form-control">
-                    <option value="">-- Chọn Tỉnh/TP --</option>
-                    <option value="hni">Hà Nội</option>
-                    <option value="hpg">Hải Phòng</option>
-                </select>
-                <span class="form-message"></span>
-            </div>
-
-            <div class="form-group">
-                <label for="" class="form-label">Giới tính</label>
-                <div class="rad-container">
-                    <label class="rad-label">
-                        <input type="radio" value="male" class="rad-input" name="gender">
-                        <div class="rad-design"></div>
-                        <div class="rad-text">Nam</div>
-                    </label>
-
-                    <label class="rad-label">
-                        <input type="radio" value="female" class="rad-input" name="gender">
-                        <div class="rad-design"></div>
-                        <div class="rad-text">Nữ</div>
-                    </label>
-
-                    <label class="rad-label">
-                        <input type="radio" value="other" class="rad-input" name="gender">
-                        <div class="rad-design"></div>
-                        <div class="rad-text">Khác</div>
-                    </label>
-                </div>
-                <span class="form-message"></span>
-            </div> -->
-
             <button class="form-submit">Đăng nhập</button>
         </form>
     </div>
@@ -152,18 +112,18 @@
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isRequired('#fullname', true, 'Vui lòng nhập họ và tên của bạn'),
-                Validator.isRequired('#email', true, 'Vui lòng nhập email'),
+                Validator.isRequired('#fullname', 'Vui lòng nhập họ và tên của bạn'),
+                Validator.isRequired('#email', 'Vui lòng nhập email'),
                 Validator.isEmail('#email'),
-                Validator.isRequired('#password', true, 'Vui lòng nhập mật khẩu'),
+                Validator.isRequired('#password', 'Vui lòng nhập mật khẩu'),
                 Validator.minLength('#password', 6),
-                Validator.isRequired('#password_confirmation', true, 'Vui lòng nhập lại mật khẩu'),
+                Validator.isRequired('#password_confirmation', 'Vui lòng nhập lại mật khẩu'),
                 Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#form-1 #password').value;
                 }, 'Mật khẩu nhập vào không chính xác'),
-                // Validator.isRequired('#avatar', 'Vui lòng tải ảnh lên'),
-                // Validator.isRequired('#province', 'Vui lòng chọn tỉnh thành'),
-                // Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
+                Validator.isRequired('#avatar', 'Vui lòng tải ảnh lên'),
+                Validator.isRequired('#province', 'Vui lòng chọn tỉnh thành'),
+                Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
             ],
             onSubmit: function (data) {
                 // Call API

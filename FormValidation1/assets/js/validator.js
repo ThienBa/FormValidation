@@ -147,11 +147,11 @@ function Validator(options) {
  * 1. Khi có lỗi => Trả ra message lỗi
  * 2. Khi hợp lệ => Không trả (undefined)
  */
-Validator.isRequired = function (selector, isInput, message) {
+Validator.isRequired = function (selector, message) {
     return {
         selector,
         test: function (value) {
-            return (isInput ? value.trim() : value) ? undefined : message || 'Vui lòng nhập trường này';
+            return value ? undefined : message || 'Vui lòng nhập trường này';
         }
     }
 }

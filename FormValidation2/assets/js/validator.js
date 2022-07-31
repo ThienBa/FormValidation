@@ -78,7 +78,17 @@ function Validator(formSelector) {
             let errorMessage;
 
             for (const rule of rules) {
-                errorMessage = rule(event.target.value);
+                switch (event.target.type) {
+                    case 'radio':
+                    case 'checkbox':
+                        // errorMessage = rule(
+                        //     formElement.querySelector(event.target.name + ':checked')
+                        // );
+                        // break;
+                    default:
+                        errorMessage = rule(event.target.value);
+                        break;
+                }
                 if (errorMessage) break;
             }
 
